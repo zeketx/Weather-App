@@ -2,11 +2,12 @@ let appId = '881b3f7c08ad54b75bda4f21bfe917ff';
 
 let units = 'imperial';
 
-let searchMethod; // zipcode
+let searchMethod;
 
-// zipcode or city name
 
 function getSearchMethod(searchTerm) {
+
+    // zipcode or city name
 
     // parse all items in searchTerm into numbers, make sure its zipcode
 
@@ -121,8 +122,6 @@ function init(resultFromServer) {
 
     let weatherDescription = document.getElementById('weatherDescription');
 
-    //let weatherDescriptionIcon = document.getElementById('weatherDescriptionIcon');
-
     let currentTemperature = document.getElementById('temperature');
 
     let currentHumidity = document.getElementById('current_humidity');
@@ -130,6 +129,8 @@ function init(resultFromServer) {
     let currentCity = document.getElementById('current_city');
 
     // weather Icon API 
+
+    //let weatherDescriptionIcon = document.getElementById('weatherDescriptionIcon'); // 
 
     //weatherDescriptionIcon.src = 'http://openweathermap.org/img/w/' + resultFromServer.weather[0].icon + '.png';
 
@@ -151,6 +152,7 @@ function init(resultFromServer) {
 
 
 // get search_button to search for input
+
 
 document.getElementById('search_button').addEventListener('click', () => {
 
