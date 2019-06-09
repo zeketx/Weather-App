@@ -37,7 +37,7 @@ function searchWeather(searchTerm) {
  
     // we want to recieve JSON data before we move on with code
 
-    fetch(`http://api.openweathermap.org/data/2.5/weather?${searchMethod}=${searchTerm}&APPID=${appId}&units=${units}`).then(result => {
+    fetch(`https://cors-anywhere.herokuapp.com/http://api.openweathermap.org/data/2.5/weather?${searchMethod}=${searchTerm}&APPID=${appId}&units=${units}`).then(result => {
 
     // converts HTTP resonse into JSON = JS objects
 
