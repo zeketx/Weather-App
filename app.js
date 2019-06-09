@@ -4,6 +4,9 @@ let units = 'imperial';
 
 let searchMethod;
 
+/////////////////////////////////////
+// Zip Code and City Logic
+////////////////////////////////////
 
 function getSearchMethod(searchTerm) {
 
@@ -19,6 +22,10 @@ function getSearchMethod(searchTerm) {
 
     searchMethod = 'q';
 }
+
+/////////////////////////////////////
+//  OpenWeatherAPI search LOGIC
+////////////////////////////////////
 
 function searchWeather(searchTerm) {
 
@@ -46,9 +53,9 @@ function searchWeather(searchTerm) {
 
 }
 
-// pasing JSON object
-
-// get all data from this function
+/////////////////////////////////////
+// pasing JSON object   |   get all data from this function
+////////////////////////////////////
 
 function init(resultFromServer) {
 
@@ -128,14 +135,6 @@ function init(resultFromServer) {
 
     let currentCity = document.getElementById('current_city');
 
-    // weather Icon API 
-
-    //let weatherDescriptionIcon = document.getElementById('weatherDescriptionIcon'); // 
-
-    //weatherDescriptionIcon.src = 'http://openweathermap.org/img/w/' + resultFromServer.weather[0].icon + '.png';
-
-    // taking from API and placing it on front end 
-
     let resultDescription = resultFromServer.weather[0].description;
 
     weatherDescription.innerText = resultDescription.charAt(0).toUpperCase() + resultDescription.slice(1); // charAt() --> add uppercase to first letter
@@ -146,32 +145,55 @@ function init(resultFromServer) {
 
     currentHumidity.innerText = resultFromServer.main.humidity + ' %' + ' Humidity';
 
+    // OPTIONAL : weather Icon API 
+
+    //let weatherDescriptionIcon = document.getElementById('weatherDescriptionIcon'); // 
+
+    //weatherDescriptionIcon.src = 'http://openweathermap.org/img/w/' + resultFromServer.weather[0].icon + '.png';
+
+    // taking from API and placing it on front end 
+
 
 }
 
 
+/////////////////////////////////////
+// key up + search button onCLick(); LOGIC
+////////////////////////////////////
 
-// get search_button to search for input
+document.getElementById('search_input').addEventListener('keyup', function(event) {
 
+    event.preventDefault();
+    
+    if(event.keyCode === 13) {
 
-document.getElementById('search_button').addEventListener('click', () => {
+        document.getElementById('search_button').click();
 
-    // remove landing elements function
+    }
+});
 
-    removeLandingItems();
+/////////////////////////////////////
+// logic for searching Input
+////////////////////////////////////
 
+function buttonCode() {
 
-    // when button is pressed ... search what is in input
+    console.log('button code executed');
 
     let searchTerm = document.getElementById('search_input').value;
 
-    console.log('btn clicked');
-
     if(searchTerm)
     
-        searchWeather(searchTerm);
+    searchWeather(searchTerm);
 
-})
+    // remove landing page elements
+
+    removeLandingItems();
+}
+
+/////////////////////////////////////
+//  remove landing page elements
+////////////////////////////////////
 
 function removeLandingItems () {
 
