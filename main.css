@@ -145,7 +145,7 @@ body {
 
     #weatherContainer {
         display: grid;
-        padding-top: 30%;
+        padding-top: 10%;
         width: 100vw;
         grid-template-columns:auto;
         grid-template-rows: auto;
