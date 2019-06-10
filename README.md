@@ -13,7 +13,8 @@ This Vanilla Javascript App was built as a learning project to understand API ca
 
 ---
 
-### Tech Used:
+### Tech Used
+
 Javascript
 
 CSS3
